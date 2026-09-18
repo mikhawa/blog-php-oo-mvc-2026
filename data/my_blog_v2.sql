@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 17 oct. 2025 à 11:30
+-- Généré le : ven. 17 oct. 2026 à 11:30
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`article_id`, `article_title`, `article_slug`, `article_text`, `article_date_create`, `article_date_publish`, `article_visibility`, `article_user_id`) VALUES
-                                                                                                                                                                                  (1, 'Introduction to PHP', 'introduction-to-php', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.', '2025-10-16 09:08:58', '2025-10-16 09:08:58', 2, 2),
-                                                                                                                                                                                  (2, 'JavaScript Fundamentals', 'javascript-fundamentals', 'Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.', '2025-10-16 09:08:58', '2025-10-16 09:08:58', 2, 2),
-                                                                                                                                                                                  (3, 'Understanding SQL Joins', 'understanding-sql-joins', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2025-10-16 09:08:58', '2025-10-16 09:09:57', 2, 1),
-                                                                                                                                                                                  (4, 'Youpie', 'youpie', 'The installer - which requires that you have PHP already installed - will download Composer for you and set up your PATH environment variable so you can simply call composer from any directory.\r\n\r\nDownload and run Composer-Setup.exe - it will install the latest composer version whenever it is executed.', '2025-10-16 09:40:45', '2025-10-16 09:41:13', 2, 4);
+                                                                                                                                                                                  (1, 'Introduction to PHP', 'introduction-to-php', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.', '2026-08-16 09:08:58', '2026-08-16 09:08:58', 2, 2),
+                                                                                                                                                                                  (2, 'JavaScript Fundamentals', 'javascript-fundamentals', 'Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.', '2026-08-16 09:08:58', '2026-08-16 09:08:58', 2, 2),
+                                                                                                                                                                                  (3, 'Understanding SQL Joins', 'understanding-sql-joins', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2026-08-16 09:08:58', '2026-08-16 09:09:57', 2, 1),
+                                                                                                                                                                                  (4, 'Youpie', 'youpie', 'The installer - which requires that you have PHP already installed - will download Composer for you and set up your PATH environment variable so you can simply call composer from any directory.\r\n\r\nDownload and run Composer-Setup.exe - it will install the latest composer version whenever it is executed.', '2026-08-16 09:40:45', '2026-08-16 09:41:13', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -129,10 +129,10 @@ CREATE TABLE IF NOT EXISTS `comment` (
 --
 
 INSERT INTO `comment` (`comment_id`, `comment_text`, `comment_create`, `comment_parent`, `comment_visibility`, `comment_user_id`, `comment_article_id`) VALUES
-                                                                                                                                                            (1, 'Great introduction! Very helpful for beginners.', '2025-10-16 09:08:58', 0, 1, 3, 1),
-                                                                                                                                                            (2, 'Thanks for this article. Looking forward to more content.', '2025-10-16 09:08:58', 0, 1, 4, 1),
-                                                                                                                                                            (3, 'I have a question about closures. Can you explain them in more detail?', '2025-10-16 09:08:58', 0, 1, 3, 2),
-                                                                                                                                                            (4, 'I agree, it is a very good article. I would also add that PHP 8 has many new features.', '2025-10-16 09:08:58', 1, 1, 1, 1);
+                                                                                                                                                            (1, 'Great introduction! Very helpful for beginners.', '2026-08-16 09:08:58', 0, 1, 3, 1),
+                                                                                                                                                            (2, 'Thanks for this article. Looking forward to more content.', '2026-08-16 09:08:58', 0, 1, 4, 1),
+                                                                                                                                                            (3, 'I have a question about closures. Can you explain them in more detail?', '2026-08-16 09:08:58', 0, 1, 3, 2),
+                                                                                                                                                            (4, 'I agree, it is a very good article. I would also add that PHP 8 has many new features.', '2026-08-16 09:08:58', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -186,10 +186,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_login`, `user_pwd`, `user_mail`, `user_real_name`, `user_date_inscription`, `user_hidden_id`, `user_activate`, `user_role_id`) VALUES
-                                                                                                                                                                        (1, 'admin', '$2y$10$frf81co4qvbVvXlIbjoOQev7zJqJum5SUwUYEwlLkezziR5gBLz46', 'admin@example.com', 'John Doe', '2025-10-16 09:08:58', 'uid_admin_60b8d29f2c1a3', 1, 1),
-                                                                                                                                                                        (2, 'editor', '$2y$10$2xySwxmRLkzdZ6.qORGtV.VxrbOXnqqtuIdVAw.2PCjZmDiQJPvhe', 'editor@example.com', 'Jane Smith', '2025-10-16 09:08:58', 'uid_editor_60b8d29f2c1b4', 1, 2),
-                                                                                                                                                                        (3, 'user1', '$2y$10$39ilfnNKn5Bu0UTcBDRbzucpEet.lTH3c00bu2cthgN/g1ZFz0zri', 'user1@example.com', 'Lorem Ipsum', '2025-10-16 09:08:58', 'uid_user1_60b8d29f2c1c5', 1, 3),
-                                                                                                                                                                        (4, 'user2', '$2y$10$j3YKXYlcoJdUv/LtnFN.BOXo67qACi9ormT0CCO4eRQ9jjkM3d3CG', 'user2@example.com', NULL, '2025-10-16 09:08:58', 'uid_user2_60b8d29f2c1d6', 1, 3);
+                                                                                                                                                                        (1, 'admin', '$2y$10$frf81co4qvbVvXlIbjoOQev7zJqJum5SUwUYEwlLkezziR5gBLz46', 'admin@example.com', 'John Doe', '2026-08-16 09:08:58', 'uid_admin_60b8d29f2c1a3', 1, 1),
+                                                                                                                                                                        (2, 'editor', '$2y$10$2xySwxmRLkzdZ6.qORGtV.VxrbOXnqqtuIdVAw.2PCjZmDiQJPvhe', 'editor@example.com', 'Jane Smith', '2026-08-16 09:08:58', 'uid_editor_60b8d29f2c1b4', 1, 2),
+                                                                                                                                                                        (3, 'user1', '$2y$10$39ilfnNKn5Bu0UTcBDRbzucpEet.lTH3c00bu2cthgN/g1ZFz0zri', 'user1@example.com', 'Lorem Ipsum', '2026-08-16 09:08:58', 'uid_user1_60b8d29f2c1c5', 1, 3),
+                                                                                                                                                                        (4, 'user2', '$2y$10$j3YKXYlcoJdUv/LtnFN.BOXo67qACi9ormT0CCO4eRQ9jjkM3d3CG', 'user2@example.com', NULL, '2026-08-16 09:08:58', 'uid_user2_60b8d29f2c1d6', 1, 3);
 
 --
 -- Contraintes pour les tables déchargées

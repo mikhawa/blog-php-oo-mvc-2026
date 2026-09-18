@@ -1,5 +1,8 @@
 # blog-php-oo-mvc
-**Blog fait en PHP8 - MySQL en MVC - POO (Orienté Objet)**
+
+## Préparation du projet de Maison Rosalie
+
+**Exemple d'un Blog fait en PHP8 - MySQL en MVC - POO (Orienté Objet)**
 
 **Avec Twig comme moteur de template**
 
