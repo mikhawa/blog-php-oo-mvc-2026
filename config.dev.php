@@ -17,7 +17,7 @@ const RACINE_PATH = __DIR__;
 // URL racine de notre site pour le navigateur (jusqu'au dossier public)
 // évite les problèmes de chemins relatifs si on utilise Twig ou des redirections
 // qui sont liés à la réécriture des URLs
-// const RACINE_URL = "http://web2025/blog-php-perm-comment/public/";
+const RACINE_URL = "http://web2025/blog-php-perm-comment/public/";
 
 // API de mailjet
 const DSN="mailjet+api://public:private@default";
