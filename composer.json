@@ -1,0 +1,9 @@
+{
+    "require": {
+        "twig/twig": "^3.21",
+        "ext-pdo": "*",
+        "symfony/mailer": "^7.3",
+        "symfony/mailjet-mailer": "^7.3",
+        "symfony/http-client": "^7.3"
+    }
+}

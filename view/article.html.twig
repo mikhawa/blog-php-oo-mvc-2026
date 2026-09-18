@@ -1,0 +1,109 @@
+{% extends "template.front.html.twig" %}
+
+{% block title %}{{ parent() }} | Article : {{ article.getArticleTitle|raw }} {% endblock %}
+{% block hero_title %}Article : <small>{{ article.getArticleTitle|raw }}</small>{% endblock %}
+{% block hero_text %}{% endblock %}
+{% block main %}
+    {% if comment == 'success_auto_approved' %}
+        <div class="alert alert-success">Votre commentaire a bien été ajouté !</div>
+    {% endif %}
+    {% if comment == 'success_pending_approval' %}
+        <div class="alert alert-success">Votre commentaire a bien été ajouté ! Il devra être validé par un administrateur.</div>
+    {% endif %}
+    {% if comment == 'error' %}
+        <div class="alert alert-danger">Votre commentaire n'est pas au format requis</div>
+    {% endif %}
+{% endblock %}
+{% block aside %}
+    <div>
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-left">
+                <div class="card shadow-sm">
+                    <div class="card-body py-5">
+                        <h3 class="text-muted mb-3">{{ article.getArticleTitle|raw }}</h3>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+
+                                {% for category in article.getCategories() %}
+                                    {% if loop.first %} Rubrique : {% endif %}
+                                    <span class="badge bg-primary  "><a class="text-white"
+                                                                        href="{{ racineURL }}category/{{ category.getCategorySlug()|e }}">
+                                {{ category.getCategoryTitle()|e }}</a></span>
+                                    {% else %}
+                                    Pas de rubrique.
+                                {% endfor %}
+                            </div>
+                            <small class="text-muted">
+                                <i class="bi bi-calendar me-1"></i>Le {{ article.getArticleDatePublish()|date('d/m/H \à H\\hi') }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <p class="card-text text-muted">
+                            {{ article.getArticleText|nl2br }}
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-light text-primary">
+                                <i class="bi bi-eye me-1"></i>
+                                Publié par <a class="text-primary"
+                                              href="{{ racineURL }}user/{{ article.getUser.getUserLogin }}">
+                                {% if article.getUser.getUserRealName %} {{ article.getUser.getUserRealName }}
+                                {% else %} {{ article.getUser.getUserLogin }}
+                                {% endif %}</a></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Espace commentaires #}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Espace commentaires</h4>
+
+                    {# Affichage des commentaires existants #}
+                    {% if article.getComments() is not empty %}
+                        {% for comment in article.getComments() %}
+                            <div class="d-flex mb-4">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-person-circle fs-2 text-muted"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <div class="fw-bold">{{ comment.user.getUserLogin() }}</div>
+                                    <p class="text-muted small mb-1">Le {{ comment.getCommentCreate()|date('d/m/Y à H:i') }}</p>
+                                    <p class="mb-0">{{ comment.getCommentText()|raw|nl2br }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">Il n'y a pas encore de commentaires. Soyez le premier à en écrire un !</p>
+                    {% endif %}
+
+                    <hr class="my-4">
+
+                    {# Si on est connecté, Formulaire pour ajouter un commentaire #}
+                    {% if session.user_id %}
+                        <h5>Laissez votre commentaire</h5>
+                        <form method="POST" action="{{ racineURL }}comment/{{ article.getArticleSlug }}/{{ article.getArticleId }}/">
+                            <div class="mb-3">
+                                <label for="comment" class="form-label visually-hidden">Votre commentaire</label>
+                                <textarea class="form-control" id="comment" name="comment_text" rows="4" placeholder="Écrivez votre commentaire ici..." required></textarea>
+                                <input type="hidden" name="comment_article_id" value="{{ article.getArticleId }}">
+                                <input type="hidden" name="comment_user_id" value="{{ session.user_id }}">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Envoyer le commentaire</button>
+                        </form>
+                    {% else %}
+                        <p class="text-center">Vous devez être <a href="{{ racineURL }}connection/?redirect={{ article.getArticleSlug }}">connecté</a> pour laisser un commentaire.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

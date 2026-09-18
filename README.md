@@ -147,7 +147,3 @@ Nous utiliserons `Bootstrap 5` et ses `incones` pour le template responsive :
 - https://icons.getbootstrap.com/
 
 
-### Remerciements
-Merci à [Massine2k1](https://github.com/Massine2k1) pour son design que nous utiliserons dans ce projet :
-
-https://github.com/WebDevCF2m2025/PHP8-OO/tree/main/classe1/Massine/07-avance/view
